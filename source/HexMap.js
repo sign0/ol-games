@@ -8,7 +8,6 @@
   Inherits from:
   <ol_source_ImageCanvas>
 */
-import {inherits as ol_inherits} from 'ol'
 import ol_source_ImageCanvas from 'ol/source/ImageCanvas'
 
 /**
@@ -35,7 +34,6 @@ const ol_ext_inherits = function(child,parent) {
 };
 
 ol_ext_inherits( ol_source_HexMap, ol_source_ImageCanvas );
-//ol_inherits (ol_source_HexMap, ol_source_ImageCanvas);
 
 /** draw an hexagon
 * @param {Canvas context2D} ctx
