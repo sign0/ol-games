@@ -18,6 +18,12 @@
  * @param {Object=} Control options.
  *
  */
+
+const ol_ext_inherits = function(child,parent) {
+  child.prototype = Object.create(parent.prototype);
+  child.prototype.constructor = child;
+};
+
 ol.control.FrameRate = function(opt_options) {
   var options = opt_options || {};
   var element = ol.ext.element.create('DIV', {
@@ -38,7 +44,7 @@ ol.control.FrameRate = function(opt_options) {
     target: options.target
   });
 };
-ol.inherits(ol.control.FrameRate, ol.control.Control);
+ol_ext_inherits(ol.control.FrameRate, ol.control.Control);
 /**
  * @param {ol.Map} map The map instance.
  */
@@ -1174,7 +1180,7 @@ ol.source.HexMap = function(options){
   this.grid.on('change', this.changed.bind(this));
   ol.source.ImageCanvas.call (this, { canvasFunction: this.drawHex });	
 };
-ol.inherits (ol.source.HexMap, ol.source.ImageCanvas);
+ol_ext_inherits(ol.source.HexMap, ol.source.ImageCanvas);
 /** draw an hexagon
 * @param {Canvas context2D} ctx
 * @param {ol.pixel} 
