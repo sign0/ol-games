@@ -9,6 +9,7 @@
   <ol_source_ImageCanvas>
 */
 import ol_source_ImageCanvas from 'ol/source/ImageCanvas'
+import ol_ext_inherits from 'ol-ext/util/ext'
 
 /**
 * @constructor ol_source_HexMap
@@ -28,12 +29,7 @@ var ol_source_HexMap = function(options){
   ol_source_ImageCanvas.call (this, { canvasFunction: this.drawHex });	
 };
 
-const ol_ext_inherits = function(child,parent) {
-  child.prototype = Object.create(parent.prototype);
-  child.prototype.constructor = child;
-};
-
-ol_ext_inherits( ol_source_HexMap, ol_source_ImageCanvas );
+ol_ext_inherits (ol_source_HexMap, ol_source_ImageCanvas);
 
 /** draw an hexagon
 * @param {Canvas context2D} ctx
